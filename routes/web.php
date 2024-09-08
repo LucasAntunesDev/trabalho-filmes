@@ -17,5 +17,5 @@ Route::prefix('filmes')->group(function () {
     // Route::apagar('apagar/{filme}', [FilmesController::class, 'remove']);
 
     Route::get('editar/{filme}', [FilmesController::class, 'editar'])->name('filmes.editar');
-    Route::put('editar/{filme}', [FilmesController::class, 'editStore']);
+    Route::put('editar/{filme}', [FilmesController::class, 'editarGravar']);
 });

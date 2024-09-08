@@ -34,6 +34,7 @@ class Usuario extends Model
         'nome',
         'usuario',
         'senha',
+        'imagem',
         'admin',
     ];
 

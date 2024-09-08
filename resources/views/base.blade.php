@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-neutral-800 text-zinc-50">
 
-    <h1 class="mx-auto text-violet-500 w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
+    <h1 class="mx-auto text-primary w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
 
     @yield('conteudo')
 </body>

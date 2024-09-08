@@ -20,16 +20,54 @@ class FilmesController extends Controller {
     }
 
     public function gravar(Request $form) {
-        dd($form);
+        // dd($form);
+
+        $img = $form->file('imagem')->store('filmes', 'imagens');
+
         $dados = $form->validate([
-            'nome' => 'required|min:3',
-            'idade' => 'required|integer'
+            'nome' => 'required',
+            'sinopse' => 'required|string',
+            'ano' => 'required',
+            'categoria' => 'required',
+            'link_trailer' => 'required|string',
         ]);
+
+        $dados['imagem'] = $img;
+
+        dd($dados);
 
         Filme::create($dados);
 
         return redirect()->route('filmes');
     }
+
+    public function editar(Filme $filme) {
+        return view('filmes.editar', ['filme' => $filme]);
+    }
+
+    public function editarGravar(Request $form, Filme $filme) {
+
+        $img = $form->file('imagem')->store('filmes', 'imagens');
+
+        $dados = $form->validate([
+            'nome' => 'required',
+            'sinopse' => 'required|string',
+            'ano' => 'required',
+            'categoria' => 'required',
+            'link_trailer' => 'required|string',
+        ]);
+
+        $dados['imagem'] = $img;
+        // dd($dados);
+
+        $filme->fill($dados);
+
+        $filme->save();
+
+        return redirect()->route('filmes');
+    }
+
+
 
     public function apagar(Filme $filme) {
         return view('filmes.apagar', [
