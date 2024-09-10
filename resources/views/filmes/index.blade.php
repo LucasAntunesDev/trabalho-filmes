@@ -10,6 +10,7 @@
     </a>
 </p>
 
+@if (Auth::user() && Auth::user()->admin)
 @foreach ($filmes as $filme)
 <ul class="bg-neutral-700 p-4 rounded-2xl backdrop-blur-sm shadow-md w-fit  flex flex-col mx-auto">
     <li class="self-end my-2">
@@ -29,5 +30,15 @@
 
 </ul>
 @endforeach
+@else
+<section class="bg-red-500 w-screen grid grid-cols-1 md:grid-cols-4 justify-items-center h-fit">
+    @foreach ($filmes as $filme)
+    <div class="max-h-72 w-fit">
+        <img src="{{ asset("img/$filme->imagem") }}" class="rounded" />
+    </div>
+    @endforeach
+</section>
+@endif
+
 
 @endsection

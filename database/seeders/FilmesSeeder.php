@@ -7,16 +7,15 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class FilmesSeeder extends Seeder
-{
+class FilmesSeeder extends Seeder {
     public function run(): void {
         DB::table('filmes')->insert([
             'nome' => 'O Senhor dos Anéis : O Retorno do Rei',
-            'sinopse' => '',
+            'sinopse' => 'Sauron planeja um grande ataque a Minas Tirith, capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar a resistência. Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.',
             'ano' => '2005',
-            'categoria' => '',
-            // 'imagem' => '',
-            'link_trailer' => '',
+            'categoria' => 'Aventura',
+            'imagem' => 'filmes/D6ZU5kbbgDOOkvT5WIexcqULuKFVXkGO1E6kl70Q.jpg',
+            'link_trailer' => 'https://www.youtube.com/watch?v=OQgySPQ5M3Y',
         ],);
     }
 }

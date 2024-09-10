@@ -34,8 +34,6 @@ class FilmesController extends Controller {
 
         $dados['imagem'] = $img;
 
-        dd($dados);
-
         Filme::create($dados);
 
         return redirect()->route('filmes');

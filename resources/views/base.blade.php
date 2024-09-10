@@ -12,15 +12,25 @@
 
 <body class="bg-neutral-800 text-zinc-50">
 
-    <header class="bg-red-500 flex justify-between px-12 items-center h-fit w-screen py-4">
-        
-        <a href="{{ route('filmes') }}">Filmes</a>
+    <header class="flex justify-between px-12 items-center h-fit w-screen py-4">
+
+        <div class="inline-flex items-center gap-4 ">
+            <a href="{{ route('index') }}">Início</a>
+
+            <a href="{{ route('filmes') }}">Filmes</a>
+        </div>
+
 
         @if (Auth::user())
-        Olá, {{ Auth::user()['name'] }}!
+        <div class="inline-flex items-center gap-4 ">
+            <p>Olá, {{ Auth::user()['name'] }}!</p>
+            <a href="{{ route('logout') }}" class="bg-rose-600 transition ease-in-out rounded-full p-2">Logout</a>
+        </div>
         @else
-        Você não está autenticado
+        <div class="inline-flex items-center gap-4 ">
+        <p>Você não está autenticado</p>
         <a href="{{ route('login') }}" class="bg-teal-600 transition ease-in-out rounded-full p-2">Login</a>
+        </div>
         @endif
 
     </header>

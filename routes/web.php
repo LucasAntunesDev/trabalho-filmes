@@ -15,10 +15,10 @@ Route::prefix('filmes')->group(function () {
     Route::get('cadastrar', [FilmesController::class, 'cadastrar'])->name('filmes.cadastrar');
     Route::post('cadastrar', [FilmesController::class, 'gravar'])->name('filmes.gravar');
 
-    
-Route::get('/filmes/apagar/{filme}', [FilmesController::class, 'apagar'])->name('filmes.apagar');
 
-Route::delete('/filmes/apagar/{filme}', [FilmesController::class, 'deletar']);
+    Route::get('/filmes/apagar/{filme}', [FilmesController::class, 'apagar'])->name('filmes.apagar');
+
+    Route::delete('/filmes/apagar/{filme}', [FilmesController::class, 'deletar']);
 
 
     Route::get('editar/{filme}', [FilmesController::class, 'editar'])->name('filmes.editar');
@@ -31,7 +31,7 @@ Route::prefix('usuarios')->middleware('auth')->group(function () {
     Route::get('/inserir', [UsuariosController::class, 'create'])->name('usuarios.inserir');
     Route::post('/inserir', [UsuariosController::class, 'insert'])->name('usuarios.gravar');
 
-    Route::get('editar/{usuario}', [UsuariosController::class, 'editar'])->name('filmes.editar');
+    Route::get('editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
     Route::put('editar/{usuario}', [UsuariosController::class, 'editarGravar']);
 
     Route::get('/apagar/{usuario}', [UsuariosController::class, 'remove'])->name('usuarios.apagar');
