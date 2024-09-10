@@ -12,6 +12,16 @@
 
 <body class="bg-neutral-800 text-zinc-50">
 
+    {{-- <header>
+        @if (Auth::user())
+        Olá, {{ Auth::user()['name'] }}!
+        @else
+        Você não está autenticado
+        <a href="{{ route('login') }}" class="bg-teal-600 transition ease-in-out rounded-full p-2">Login</a>
+        @endif
+
+    </header> --}}
+
     <h1 class="mx-auto text-primary w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
 
     @yield('conteudo')

@@ -7,35 +7,35 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Usuario extends Model
-{
+class Usuario extends Model implements Authenticatable {
     use HasFactory;
 
-    function getAuthIdentifierName() {
-        return 'id';
-    }
-    function getAuthIdentifier() {
-        return $this->id;
-    }
-    function getAuthPassword() {
-        return $this->senha;
-    }
-    function getRememberToken() {
-        
-    }
-    function setRememberToken($value) {
-
-    }
-    function getRememberTokenName() {
-
-    }
-
     protected $fillable = [
-        'nome',
-        'usuario',
-        'senha',
+        'name',
+        'username',
+        'password',
         'imagem',
         'admin',
     ];
 
+    function getAuthIdentifierName() {
+        return 'id';
+    }
+
+    function getAuthIdentifier() {
+        return $this->id;
+    }
+
+    function getAuthPassword() {
+        return $this->password;
+    }
+    public function getAuthPasswordName() {
+        return 'password';
+    }
+    function getRememberToken() {
+    }
+    function setRememberToken($value) {
+    }
+    function getRememberTokenName() {
+    }
 }
