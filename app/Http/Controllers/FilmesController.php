@@ -68,7 +68,6 @@ class FilmesController extends Controller {
     }
 
 
-
     public function apagar(Filme $filme) {
         return view('filmes.apagar', [
             'filme' => $filme,

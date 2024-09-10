@@ -12,7 +12,10 @@
 
 <body class="bg-neutral-800 text-zinc-50">
 
-    {{-- <header>
+    <header class="bg-red-500 flex justify-between px-12 items-center h-fit w-screen py-4">
+        
+        <a href="{{ route('filmes') }}">Filmes</a>
+
         @if (Auth::user())
         Olá, {{ Auth::user()['name'] }}!
         @else
@@ -20,7 +23,7 @@
         <a href="{{ route('login') }}" class="bg-teal-600 transition ease-in-out rounded-full p-2">Login</a>
         @endif
 
-    </header> --}}
+    </header>
 
     <h1 class="mx-auto text-primary w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
 
