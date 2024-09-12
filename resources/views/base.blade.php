@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -15,9 +16,21 @@
     <header class="flex justify-between px-12 items-center h-fit w-screen py-4">
 
         <div class="inline-flex items-center gap-4 ">
-            <a href="{{ route('index') }}">Início</a>
+            <a href="{{ route('index') }}" class="inline-flex items-center gap-x-2 hover:text-white/80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house">
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                    <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+                <span>Início</span>
+            </a>
 
-            <a href="{{ route('filmes') }}">Filmes</a>
+            <a href="{{ route('filmes') }}" class="inline-flex items-center gap-x-2 hover:text-white/80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clapperboard">
+                    <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                    <path d="m6.2 5.3 3.1 3.9" />
+                    <path d="m12.4 3.4 3.1 4" />
+                    <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" /></svg>
+                <span>Filmes</span>
+            </a>
         </div>
 
 
@@ -28,8 +41,8 @@
         </div>
         @else
         <div class="inline-flex items-center gap-4 ">
-        <p>Você não está autenticado</p>
-        <a href="{{ route('login') }}" class="bg-teal-600 transition ease-in-out rounded-full p-2">Login</a>
+            <p>Você não está autenticado</p>
+            <a href="{{ route('login') }}" class="btn-success">Login</a>
         </div>
         @endif
 

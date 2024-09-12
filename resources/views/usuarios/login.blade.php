@@ -4,8 +4,6 @@
 
 @section('conteudo')
 
-<p>Preencha o formulário</p>
-
 @if($errors->any())
 <div>
     <h4>Deu ruim</h4>
@@ -15,27 +13,31 @@
 </div>
 @endif
 
-<form method="post" action="{{ route('login') }}" class="p-10 bg-neutral-700 rounded-2xl shadow-xl">
+<form method="post" action="{{ route('login') }}" class="p-10 bg-neutral-700 rounded-2xl shadow-xl w-1/2 mx-auto">
     @csrf
 
     <div>
-        <label class="block text-sm text-zinc-50" for="username">Login</label>
-        <input class="w-full px-5 py-1 text-zinc-50 bg-neutral-600 rounded" id="username" name="username" type="text" required="" placeholder="Usuário" aria-label="Usuário" value="{{ old('username')}}">
+        <label class="label" for="username">Login</label>
+        <input class="input w-full" id="username" name="username" type="text" required="" placeholder="Usuário" aria-label="Usuário" value="{{ old('username')}}">
 
     </div>
 
     <div>
-        <label class="block text-sm text-zinc-50" for="password">Senha</label>
-        <input class="w-full px-5 py-1 text-zinc-50 bg-neutral-600 rounded" id="password" name="password" type="password" required="" placeholder="Senha" aria-label="Senha" value="{{ old('password')}}">
+        <label class="label" for="password">Senha</label>
+        <input class="input w-full" id="password" name="password" type="password" required="" placeholder="Senha" aria-label="Senha" value="{{ old('password')}}">
 
     </div>
 
-    <div class="mt-6">
-        <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded gap-x-2 inline-flex items-center" type="submit">
-            <i class="fas fa-save"></i>
-            Gravar
+    <div class="mt-6 w-fit mx-auto">
+        <button class="btn-success inline-flex gap-x-2 items-center" type="submit">
+            <span>Entrar</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" /></svg>
         </button>
     </div>
+
+    <p class="mx-auto w-fit mt-4">Ainda não tem uma conta? <a href="#" class="font-bold underline">Cadastre-se</a></p>
 
 </form>
 

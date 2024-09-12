@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn-success {
+        @apply gap-x-2 rounded-xl bg-emerald-600 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-emerald-600/50 hover:disabled:bg-emerald-600/50 transition duration-300 ease-in-out;
+    }
+
+    .label {
+        @apply block text-sm font-semibold capitalize leading-6 text-zinc-50;
+    }
+
+    .input {
+        @apply rounded-2xl border-0 border-none bg-transparent px-8 py-3 shadow outline-none ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-red-600;
+    }
+
+    .appear {
+        animation: appear 100ms ease forwards;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+    }
+
+    .disappear {
+        animation: disappear 300ms ease forwards;
+    }
+
+    @keyframes disappear {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            scale: 90%;
+            opacity: 0;
+            display: none;
+        }
+    }
+}
