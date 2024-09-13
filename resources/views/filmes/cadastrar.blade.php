@@ -14,6 +14,14 @@
 </div>
 @endif
 
+<div class="w-screen pl-10 text-zinc-50 flex items-center gap-x-4 my-8">
+    <p>Início</p>
+    <span class="font-bold">/</span>
+    <a href="{{route('filmes')}}">Filmes</a>
+    <span class="font-bold">/</span>
+    <a class="text-zinc-50/90" href="{{route('filmes')}}">Cadastrar filme</a>
+</div>
+
 <form method="post" enctype="multipart/form-data" action="{{ route('filmes.gravar') }}" class="p-10 bg-neutral-700 rounded-2xl shadow-xl w-1/2 mx-auto">
     @csrf
 
