@@ -7,13 +7,25 @@ use App\Models\Filme;
 use Illuminate\Http\Request;
 
 class FilmesController extends Controller {
-    public function index() {
+    public function index(Request $request) {
         $dados = Filme::all();
+        $query = Filme::query();
+
+        // $filmesPorAno = Filme::groupBy('ano')->get();
+        // if ($request->filled('ano')) $query->where('ano', 'like', '%' . $request->ano . '%');
+
+        // dd($filmesPorAno);
 
         return view('filmes.index', [
             'filmes' => $dados,
         ]);
     }
+
+    // public function filme(){
+
+
+    //     return view('filmes.filme');
+    // }
 
     public function cadastrar() {
         return view('filmes.cadastrar');
@@ -21,8 +33,8 @@ class FilmesController extends Controller {
 
     public function gravar(Request $form) {
         // dd($form);
-
-        $img = $form->file('imagem')->store('filmes', 'imagens');
+// dd($form->file('imagem'));
+        if ($form->file('imagem')) $img = $form->file('imagem')->store('filmes', 'imagens');
 
         $dados = $form->validate([
             'nome' => 'required',
@@ -32,11 +44,11 @@ class FilmesController extends Controller {
             'link_trailer' => 'required|string',
         ]);
 
-        $dados['imagem'] = $img;
+        if ($form->file('imagem')) $dados['imagem'] = $img;
 
         Filme::create($dados);
 
-        return redirect()->route('filmes');
+        return redirect()->route('filmes')->with('sucesso', 'Filme cadastrado com sucesso');
     }
 
     public function editar(Filme $filme) {

@@ -15,6 +15,10 @@
         @apply rounded-2xl border-0 border-none bg-transparent px-8 py-3 shadow outline-none ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-red-600;
     }
 
+    .toast {
+        @apply absolute bottom-[10] z-20 flex flex-row items-center gap-2 rounded-2xl p-4 font-medium shadow;
+    }
+
     .appear {
         animation: appear 100ms ease forwards;
     }

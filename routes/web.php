@@ -12,6 +12,7 @@ Route::get('/', function () {
 
 Route::prefix('filmes')->group(function () {
     Route::get('/', [FilmesController::class, 'index'])->name('filmes');
+    Route::get('/', [FilmesController::class, 'index'])->name('filmes');
     Route::get('cadastrar', [FilmesController::class, 'cadastrar'])->name('filmes.cadastrar');
     Route::post('cadastrar', [FilmesController::class, 'gravar'])->name('filmes.gravar');
 

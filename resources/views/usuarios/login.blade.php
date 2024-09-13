@@ -37,8 +37,6 @@
         </button>
     </div>
 
-    <p class="mx-auto w-fit mt-4">Ainda não tem uma conta? <a href="#" class="font-bold underline">Cadastre-se</a></p>
-
 </form>
 
 @endsection
