@@ -14,7 +14,7 @@ class FilmesSeeder extends Seeder {
             'sinopse' => 'Sauron planeja um grande ataque a Minas Tirith, capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar a resistência. Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.',
             'ano' => '2005',
             'categoria' => 'Aventura',
-            'imagem' => 'filmes/YcGUHqBd7aEDOcwH7cbYvOp6JRCZfxoYIZ803tQP.jpg',
+            // 'imagem' => '',
             'link_trailer' => 'https://www.youtube.com/watch?v=OQgySPQ5M3Y',
         ],);
     }

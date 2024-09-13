@@ -7,6 +7,10 @@
         @apply gap-x-2 rounded-xl bg-emerald-600 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-emerald-600/50 hover:disabled:bg-emerald-600/50 transition duration-300 ease-in-out;
     }
 
+    .btn-danger {
+        @apply gap-x-2 rounded-xl bg-rose-600 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-rose-700 disabled:cursor-not-allowed disabled:bg-rose-600/50 hover:disabled:bg-rose-600/50 transition duration-300 ease-in-out;
+    }
+
     .label {
         @apply block text-sm font-semibold capitalize leading-6 text-zinc-50;
     }
@@ -16,7 +20,7 @@
     }
 
     .toast {
-        @apply absolute bottom-[10] z-20 flex flex-row items-center gap-2 rounded-2xl p-4 font-medium shadow;
+        @apply absolute top-[10] mx-auto z-20 flex flex-row items-center gap-2 rounded-2xl p-4 font-medium shadow;
     }
 
     .appear {

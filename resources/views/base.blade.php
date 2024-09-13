@@ -29,7 +29,8 @@
                     <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
                     <path d="m6.2 5.3 3.1 3.9" />
                     <path d="m12.4 3.4 3.1 4" />
-                    <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" /></svg>
+                    <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                </svg>
                 <span>Filmes</span>
             </a>
         </div>
@@ -38,7 +39,7 @@
         @if (Auth::user())
         <div class="inline-flex items-center gap-4 ">
             <p>Olá, {{ Auth::user()['name'] }}!</p>
-            <a href="{{ route('logout') }}" class="bg-rose-600 transition ease-in-out rounded-full p-2">Logout</a>
+            <a href="{{ route('logout') }}" class="btn-danger">Logout</a>
         </div>
         @else
         <div class="inline-flex items-center gap-4 ">

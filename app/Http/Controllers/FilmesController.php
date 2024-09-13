@@ -33,13 +33,13 @@ class FilmesController extends Controller {
 
     public function gravar(Request $form) {
         // dd($form);
-// dd($form->file('imagem'));
+        // dd($form->file('imagem'));
         if ($form->file('imagem')) $img = $form->file('imagem')->store('filmes', 'imagens');
 
         $dados = $form->validate([
             'nome' => 'required',
             'sinopse' => 'required|string',
-            'ano' => 'required',
+            'ano' => 'required|integer',
             'categoria' => 'required',
             'link_trailer' => 'required|string',
         ]);
@@ -74,7 +74,7 @@ class FilmesController extends Controller {
 
         $filme->save();
 
-        return redirect()->route('filmes');
+        return redirect()->route('filmes')->with('sucesso', 'Filme editado com sucesso');;
     }
 
 
@@ -86,6 +86,6 @@ class FilmesController extends Controller {
 
     public function deletar(Filme $filme) {
         $filme->delete();
-        return redirect()->route('filmes');
+        return redirect()->route('filmes')->with('exclusão', 'Filme excluído com sucesso');
     }
 }
