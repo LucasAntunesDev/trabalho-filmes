@@ -16,7 +16,7 @@
     }
 
     .input {
-        @apply rounded-2xl border-0 border-none bg-transparent px-8 py-3 shadow outline-none ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-red-600;
+        @apply px-8 py-3 bg-transparent outline-none border-b-2 border-neutral-500 focus:border-red-600 ring-0;
     }
 
     .toast {

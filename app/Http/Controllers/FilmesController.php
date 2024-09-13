@@ -57,7 +57,7 @@ class FilmesController extends Controller {
 
     public function editarGravar(Request $form, Filme $filme) {
 
-        $img = $form->file('imagem')->store('filmes', 'imagens');
+        if ($form->file('imagem')) $img = $form->file('imagem')->store('filmes', 'imagens');
 
         $dados = $form->validate([
             'nome' => 'required',
@@ -67,7 +67,7 @@ class FilmesController extends Controller {
             'link_trailer' => 'required|string',
         ]);
 
-        $dados['imagem'] = $img;
+        if ($form->file('imagem')) $dados['imagem'] = $img;
         // dd($dados);
 
         $filme->fill($dados);
