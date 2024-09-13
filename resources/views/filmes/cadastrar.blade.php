@@ -19,7 +19,7 @@
     <span class="font-bold">/</span>
     <a href="{{route('filmes')}}">Filmes</a>
     <span class="font-bold">/</span>
-    <a class="text-zinc-50/90" href="{{route('filmes')}}">Cadastrar filme</a>
+    <p class="text-zinc-50/90">Cadastrar filme</p>
 </div>
 
 <form method="post" enctype="multipart/form-data" action="{{ route('filmes.gravar') }}" class="p-10 bg-neutral-700 rounded-2xl shadow-xl w-1/2 mx-auto">

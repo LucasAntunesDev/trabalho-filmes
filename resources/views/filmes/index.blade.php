@@ -21,7 +21,7 @@
 </a>
 
 
-<main class="flex flex-wrap w-screen px-24 justify-center gap-4 h-fit gap-x-40 grid grid-col-1 md:grid-cols-4">
+<main class="flex flex-wrap w-screen px-24 justify-center gap-4 h-fit gap-x-40">
 
     @if (Auth::user() && Auth::user()->admin)
     @foreach ($filmes as $filme)
@@ -39,7 +39,8 @@
         </a>
 
         @if ($filme->imagem !== null)
-        <img src="{{ asset("img/$filme->imagem") }}" class="rounded w-inheirt h-fit" />
+        <img src="{{ asset("img/$filme->imagem") }}" class="rounded-xl w-[20rem] h-fit mx-auto my-2" />
+        {{-- <div class="rounded-xl h-[40rem] w-[20rem] bg-auto" style="background: url('{{asset("img/$filme->imagem")}}')">a</div> --}}
         @else
         <img src="https://archive.org/download/placeholder-image/placeholder-image.jpg" class="rounded w-full h-fit" />
         @endif
