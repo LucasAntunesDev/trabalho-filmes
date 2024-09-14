@@ -32,10 +32,8 @@ Route::prefix('usuarios')->middleware('auth')->group(function () {
     Route::get('/inserir', [UsuariosController::class, 'create'])->name('usuarios.inserir');
     Route::post('/inserir', [UsuariosController::class, 'insert'])->name('usuarios.gravar');
 
-    Route::get('editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
-    Route::put('editar/{usuario}', [UsuariosController::class, 'editarGravar']);
-
-    Route::get('/apagar/{usuario}', [UsuariosController::class, 'remove'])->name('usuarios.apagar');
+    Route::get('/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
+    Route::put('/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
 });
 
 

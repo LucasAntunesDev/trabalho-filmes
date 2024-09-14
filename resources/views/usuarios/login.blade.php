@@ -5,8 +5,8 @@
 @section('conteudo')
 
 @if($errors->any())
-<div>
-    <h4>Deu ruim</h4>
+<div class="mx-auto w-fit">
+    <h4 class="text-rose-600 font-bold text-xl">Deu ruim</h4>
     @foreach($errors->all() as $erro)
     <p>{{ $erro }}</p>
     @endforeach

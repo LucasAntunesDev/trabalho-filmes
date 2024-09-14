@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller {
     public function index() {
-        $usuarios = Usuario::orderBy('nome', 'asc')->get();
+        $usuarios = Usuario::orderBy('name', 'asc')->get();
 
         return view('usuarios.index', ['usuarios' => $usuarios, 'pagina' => 'usuarios']);
     }
@@ -20,8 +20,9 @@ class UsuariosController extends Controller {
 
     public function insert(Request $form) {
         $dados = $form->validate([
-            'nome' => 'required',
-            'username' => 'required|min:3|unique:usuarios',
+            'name' => 'required',
+            'email' => 'email|required|unique:usuarios',
+            'username' => 'required|min:3',
             'password' => 'required|min:3',
             'admin' => 'boolean',
         ]);
@@ -33,15 +34,16 @@ class UsuariosController extends Controller {
         return redirect()->route('usuarios');
     }
 
-    public function editar(Usuario $username) {
-        return view('filmes.editar', ['username' => $username]);
+    public function editar(Usuario $usuario) {
+        return view('usuarios.editar', ['usuario' => $usuario]);
     }
 
     public function editarGravar(Request $form, Usuario $username) {
 
         $dados = $form->validate([
-            'nome' => 'required',
-            'username' => 'required|min:3|unique:usuarios',
+            'name' => 'required',
+            'email' => 'email|required|unique:usuarios',
+            'username' => 'required|min:3',
             'password' => 'required|min:3',
             'admin' => 'boolean',
         ]);
@@ -53,6 +55,7 @@ class UsuariosController extends Controller {
 
         return redirect()->back();
     }
+    
 
     public function login(Request $form) {
 
@@ -69,7 +72,7 @@ class UsuariosController extends Controller {
             } else {
                 return redirect()->route('login')->with('erro', 'Usuário ou senha inválidos');
             }
-            // dd($credenciais);
+
         }
 
         return view('usuarios.login');

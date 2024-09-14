@@ -6,8 +6,8 @@
 
 
 @if($errors->any())
-<div>
-    <h4>Deu ruim</h4>
+<div class="mx-auto w-fit">
+    <h4 class="text-rose-600 font-bold text-xl">Deu ruim</h4>
     @foreach($errors->all() as $erro)
     <p>{{ $erro }}</p>
     @endforeach
@@ -55,8 +55,8 @@
     </div>
 
     <div class="mt-2">
-        <label class="label" for="imagem">Imagem</label>
-        <input class="w-full px-5 py-1 text-zinc-50 bg-neutra1l-600 rounded" id="imagem" name="imagem" type="file" placeholder="Imagem" aria-label="Imagem" value="{{ old('imagem')}}">
+        <label class="label" for="capa">capa</label>
+        <input class="w-full px-5 py-1 text-zinc-50 bg-neutra1l-600 rounded" id="capa" name="capa" type="file" placeholder="capa" aria-label="capa" value="{{ old('capa')}}">
     </div>
 
     <div class="mt-6 flex w-fit gap-x-8 items-center mx-auto">

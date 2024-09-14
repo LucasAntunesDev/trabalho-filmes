@@ -8,33 +8,30 @@ use Illuminate\Http\Request;
 
 class FilmesController extends Controller {
     public function index(Request $request) {
-        $dados = Filme::all();
         $query = Filme::query();
-
-        // $filmesPorAno = Filme::groupBy('ano')->get();
-        // if ($request->filled('ano')) $query->where('ano', 'like', '%' . $request->ano . '%');
-
-        // dd($filmesPorAno);
-
+    
+        if ($request->filled('ano')) {
+            $query->where('ano', $request->ano);
+        }
+    
+        if ($request->filled('categoria')) {
+            $query->where('categoria', 'like', '%' . $request->categoria . '%');
+        }
+    
+        $dados = $query->get();
+    
         return view('filmes.index', [
             'filmes' => $dados,
         ]);
     }
-
-    // public function filme(){
-
-
-    //     return view('filmes.filme');
-    // }
+    
 
     public function cadastrar() {
         return view('filmes.cadastrar');
     }
 
     public function gravar(Request $form) {
-        // dd($form);
-        // dd($form->file('imagem'));
-        if ($form->file('imagem')) $img = $form->file('imagem')->store('filmes', 'imagens');
+        if ($form->file('capa')) $img = $form->file('capa')->store('filmes', 'imagens');
 
         $dados = $form->validate([
             'nome' => 'required',
@@ -44,7 +41,7 @@ class FilmesController extends Controller {
             'link_trailer' => 'required|string',
         ]);
 
-        if ($form->file('imagem')) $dados['imagem'] = $img;
+        if ($form->file('capa')) $dados['capa'] = $img;
 
         Filme::create($dados);
 
@@ -57,7 +54,7 @@ class FilmesController extends Controller {
 
     public function editarGravar(Request $form, Filme $filme) {
 
-        if ($form->file('imagem')) $img = $form->file('imagem')->store('filmes', 'imagens');
+        if ($form->file('capa')) $img = $form->file('capa')->store('filmes', 'imagens');
 
         $dados = $form->validate([
             'nome' => 'required',
@@ -67,8 +64,7 @@ class FilmesController extends Controller {
             'link_trailer' => 'required|string',
         ]);
 
-        if ($form->file('imagem')) $dados['imagem'] = $img;
-        // dd($dados);
+        if ($form->file('capa')) $dados['capa'] = $img;
 
         $filme->fill($dados);
 

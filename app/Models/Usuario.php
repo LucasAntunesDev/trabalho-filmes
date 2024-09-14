@@ -12,10 +12,10 @@ class Usuario extends Model implements Authenticatable {
 
     protected $fillable = [
         'name',
+        'email',
         'username',
         'password',
-        'imagem',
-        'admin',
+        'admin'
     ];
 
     function getAuthIdentifierName() {
