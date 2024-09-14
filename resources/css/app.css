@@ -11,6 +11,10 @@
         @apply gap-x-2 rounded-xl bg-rose-600 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-rose-700 disabled:cursor-not-allowed disabled:bg-rose-600/50 hover:disabled:bg-rose-600/50 transition duration-300 ease-in-out;
     }
 
+    .btn-ghost {
+        @apply gap-x-2 rounded-xl bg-transparent px-5 py-2 text-zinc-50 hover:cursor-pointer hover:border-[1px] hover:border-neutral-500 disabled:cursor-not-allowed disabled:text-zinc-300 disabled:hover:cursor-not-allowed transition duration-300 ease-in-out;
+    }
+
     .label {
         @apply block text-sm font-semibold capitalize leading-6 text-zinc-50;
     }

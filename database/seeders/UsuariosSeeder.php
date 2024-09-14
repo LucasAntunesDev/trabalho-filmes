@@ -21,6 +21,13 @@ class UsuariosSeeder extends Seeder {
                     'password' => Hash::make('123'),
                     'admin' => 1,
                 ],
+                [
+                    'name' => 'Usuário',
+                    'email' => 'user@user.com',
+                    'username' => 'usuario',
+                    'password' => Hash::make('usuario'),
+                    'admin' => 0,
+                ],
             ],
         );
     }

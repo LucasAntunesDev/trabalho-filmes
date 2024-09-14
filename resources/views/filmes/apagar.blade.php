@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('titulo', 'Apagar | Filmes')
+@section('titulo', 'Apagar Filme')
 
 @section('conteudo')
 

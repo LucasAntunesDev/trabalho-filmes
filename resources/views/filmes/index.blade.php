@@ -16,6 +16,12 @@
     @endif
 </div>
 
+@if (Auth::user() && Auth::user()->admin)
+<a href="{{ route('filmes.cadastrar') }}" class="btn-success w-fit mx-auto my-8 block">
+    Cadastrar filme
+</a>
+@endif
+
 <form method="GET" action="{{ url('/filmes') }}" class="w-fit mx-auto flex items-center gap-x-2 my-4">
     <div class="flex flex-col">
         <label for="ano" class="label">Ano</label>
@@ -27,7 +33,7 @@
         <input type="text" name="categoria" placeholder="Buscar por categoria" value="{{ request('categoria') }}" class="input">
     </div>
 
-    <button type="submit" class="btn-success inline-flex items-center gap-x-2 py-3 px-8 ml-4">
+    <button type="submit" class="btn-ghost inline-flex items-center gap-x-2 py-3 px-8 ml-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
             <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
         </svg>
@@ -35,11 +41,7 @@
     </button>
 </form>
 
-<a href="{{ route('filmes.cadastrar') }}" class="btn-success w-fit mx-auto my-8 block">
-    Cadastrar filme
-</a>
-
-<main class="flex flex-wrap w-screen px-24 justify-center gap-y-10 ga h-fit gap-x-40 my-8">
+<main class="flex flex-wrap w-screen px-24 gap-y-10 ga h-fit gap-x-40 my-8">
 
     @if (Auth::user() && Auth::user()->admin)
     @foreach ($filmes as $filme)
@@ -79,7 +81,7 @@
     @endforeach
     @else
     @foreach ($filmes as $filme)
-    <div id="default-modal#{{$filme->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-fit max-h-full bg-neutral-800/70 backdrop">
+    <div id="default-modal#{{$filme->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-fit max-h-full bg-neutral-800/70 backdrop hover:cursor-pointer">
         <div class="bg-neutral-900 p-4 max-w-[40rem] rounded-2xl">
 
             <button type="button" data-modal-hide="default-modal#{{$filme->id}}" class="size-5  hover:text-zinc-50/80 my-4">

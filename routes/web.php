@@ -18,7 +18,6 @@ Route::prefix('filmes')->group(function () {
 
 
     Route::get('/filmes/apagar/{filme}', [FilmesController::class, 'apagar'])->name('filmes.apagar');
-
     Route::delete('/filmes/apagar/{filme}', [FilmesController::class, 'deletar']);
 
 

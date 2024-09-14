@@ -18,7 +18,7 @@
     <span class="font-bold">/</span>
     <a href="{{route('usuarios')}}">Usuários</a>
     <span class="font-bold">/</span>
-    <a class="text-zinc-50/90" href="{{route('usuarios')}}">{{$usuario->nome}}</a>
+    <a class="text-zinc-50/90" href="{{route('usuarios')}}">{{$usuario->name}}</a>
 </div>
 
 <form method="post" enctype="multipart/form-data" action="{{ route('usuarios.editar', $usuario->id) }}" class="p-10 bg-neutral-700 rounded-2xl shadow-xl w-1/2 mx-auto">
@@ -30,33 +30,33 @@
         <input type="text" name="name" id="name" placeholder="name" value="{{old('name', $usuario->name ?? '')}}" class="input w-full" />
     </div>
 
-    <div class="mt-2">
+    <div class="my-4">
         <label class="label" for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="email" value="{{old('email', $usuario->email ?? '')}}" class="input w-full" />
 
     </div>
 
 
-    <div class="mt-2">
+    <div class="my-4">
         <label class="label" for="username">Usuário</label>
         <input type="text" name="username" id="username" placeholder="username" value="{{old('username', $usuario->username ?? '')}}" class="input w-full" />
     </div>
 
 
-    <div class="mt-2">
+    <div class="my-4">
         <label class="label" for="password">Senha</label>
         <input type="text" name="password" id="password" placeholder="password" value="" class="input w-full" />
     </div>
 
 
-    <div class="mt-2">
+    <div class="my-4">
         <label class="label">É admin?</label>
         <div>
             <input type="radio" name="admin" id="true" placeholder="admin" value="1" {{$usuario->admin ? 'checked' : ''}} />
             <label for="true" true>Sim</label>
         </div>
 
-        <div>
+        <div class="my-4">
             <input type="radio" name="admin" id="false" placeholder="admin" value="0" {{$usuario->admin ? '' : 'checked'}} />
             <label for="false" true>Não</label>
         </div>
